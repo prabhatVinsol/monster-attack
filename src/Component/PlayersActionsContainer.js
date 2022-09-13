@@ -21,9 +21,11 @@ function PlayersActionsContainer() {
     }
   }
 
-  const heal = (health) => {
+  const heal = (healthPercentage) => {
     updateLog('Player Healed')
-    const calHealth = Math.floor((playerhealth + ((playerhealth * (health/100)))))
+    const healthToBeAdded = (playerhealth * (healthPercentage/100))
+    const calHealth = Math.floor((playerhealth + Math.floor(healthToBeAdded.toFixed(2))))
+    console.log('Health final',calHealth)
     setPlayerHealth(calHealth > 100 ? 100 : calHealth)
   }
 
@@ -31,11 +33,11 @@ function PlayersActionsContainer() {
     updateLog('Player Giveup')
     setPlayerHealth(100)
     setMonsterHealth(120)
+    setLog([])
     setStarted(false)
   }
 
   const start = () => {
-    setLog([])
     updateLog('Game Started')
     setStarted(true)
   }

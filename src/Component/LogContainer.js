@@ -1,7 +1,6 @@
 import React from 'react'
 
 function LogContainer(props) {
-  console.log('MOves', props.moves)
   const moves = props.moves.reverse().map((move, index) => <p key={index} className='Logtext'>{move}</p>)
   return (
     <div className='ActionLogContainer'>
