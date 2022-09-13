@@ -1,16 +1,14 @@
 import React from 'react'
 import Player from './Player'
 
-function PlayerContainer() {
+function PlayerContainer(props) {
   return (
     <div className='PlayersContainer'  align='left'>
-      {/*<Player playerType='Player' playerHealth='100'/>
-      <Player playerType='Monster' playerHealth='120'/> */}
       <div className='PlayerContainerLeft' align='center'>
-        <Player playerType='Player' playerHealth='100'/>
+        <Player playerType='Player' playerHealth={props.playerHealth}/>
       </div>
       <div className='MonsterContainerRight' align='center'>
-        <Player playerType='Monster' playerHealth='120'/>
+        <Player playerType='Monster' playerHealth={props.monsterHealth}/>
       </div> 
     </div>
   )
