@@ -1,5 +1,5 @@
 import React from 'react'
-import PlayerHealth from './PlayerHealth'
+import PlayerHealth from 'Component/PlayerHealth'
 
 function Player(props) {
   return (
