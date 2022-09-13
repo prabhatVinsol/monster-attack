@@ -8,7 +8,7 @@ function PlayersActionsContainer() {
     <div className='PlayersActionContainer'>
       <PlayerContainer />
       <ActionContainer />
-      <LogContainer />
+      <LogContainer moves={[]}/>
     </div>
   )
 }

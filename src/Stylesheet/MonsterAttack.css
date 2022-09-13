@@ -26,9 +26,12 @@
 }
 .ActionLogContainer {
     width: auto;
-    height: 200px;
+    max-height: 170px;
     background-color: #222529;
     margin-bottom: 0px;
+    margin-top: 30px;
+    overflow-y: scroll;
+    
 }
 .PlayerHealth {
     width: 80%;
@@ -78,12 +81,23 @@
 }
 .Button{
     width: auto;
-    height: 50px;
+    height: 40px;
     color: black;
     margin-left: 20px;
     font-size: medium;
     font-weight: bold;
     border-radius: 3px;
-    border: 1px;
+    border: 0px;
     padding: 0px 20px;
+}
+.Nolog{
+    padding: 60px 30px;
+    color: white;
+    font-size: x-large;
+    font-weight: 300;
+}
+.Logtext{
+    font-size: medium;
+    color: white;
+    padding-top: 10px;
 }
