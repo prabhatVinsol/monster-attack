@@ -8,7 +8,7 @@
 
 .PlayersActionContainer{
     width: auto;
-    height: 400px;
+    height: 350px;
     padding: 10px 20px;
     margin-left: 50px;
     margin-right: 50px;
@@ -22,8 +22,7 @@
 }
 .ActionsContainer {
     width: auto;
-    height: 100px;
-    background-color:aqua
+    height: 50px;
 }
 .ActionLogContainer {
     width: auto;
@@ -64,4 +63,27 @@
     height: 100%;
     float: right;
     border-radius: 4px;
+}
+.Attack{
+    background-color: #EA8777;
+}
+.SpecialAttack{
+    background-color: #F2A93D;
+}
+.Heal{
+    background-color: #56B3B6;
+}
+.GiveUp{
+    background-color: #EA33F7;
+}
+.Button{
+    width: auto;
+    height: 50px;
+    color: black;
+    margin-left: 20px;
+    font-size: medium;
+    font-weight: bold;
+    border-radius: 3px;
+    border: 1px;
+    padding: 0px 20px;
 }
