@@ -3,6 +3,7 @@ import PlayerContainer from 'components/playerContainer'
 import ActionContainer from 'components/actionContainer'
 import LogContainer from 'components/logContainer'
 import { INITIAL_MONSTER_HEALTH, INITIAL_PLAYER_HEALTH } from 'utils/constants'
+import { getHealedPlayerHealth, getNewHealthVal, getRandomNumber } from 'utils/helper'
 
 function PlayersActionsContainer() {
   const [started, setStarted] = useState(false)
@@ -10,23 +11,21 @@ function PlayersActionsContainer() {
   const [monsterhealth, setMonsterHealth] = useState(INITIAL_MONSTER_HEALTH)
   const [actionLog, setLog] = useState([])
 
-  const attack = (health, isSpecialAttack) => {
+  const attack = (healthPercentage, isSpecialAttack) => {
     if (isSpecialAttack) {
       if(playerhealth >= 90) {
         updateLog('Player Special Attack')
-        setMonsterHealth(getMonsterHealth(health))
+        setMonsterHealth(getNewHealthVal(monsterhealth, healthPercentage))
       }
     } else {
       updateLog('Player Attack')
-      setMonsterHealth(getMonsterHealth(health))
+      setMonsterHealth(getNewHealthVal(monsterhealth, healthPercentage))
     }
   }
 
-  const heal = (healthPercentage) => {
+  const heal = (healPercentage) => {
     updateLog('Player Healed')
-    const healthToBeAdded = (playerhealth * (healthPercentage/100))
-    const calHealth = Math.floor((playerhealth + Math.floor(healthToBeAdded.toFixed(2))))
-    setPlayerHealth(calHealth > 100 ? 100 : calHealth)
+    setPlayerHealth(getHealedPlayerHealth(playerhealth, healPercentage))
   }
 
   const giveup = () => {
@@ -41,13 +40,12 @@ function PlayersActionsContainer() {
     setStarted(true)
   }
 
-  const getMonsterHealth = (healthPercentage) => (monsterhealth - ((healthPercentage * monsterhealth)/100)).toFixed(2)
   const updateLog = (logText) => setLog([...actionLog, logText])
 
   useEffect((prevState) => {
     const interval = setInterval(() => {
       if (started) {
-         const randomNum = Math.floor(Math.random() * 20) + 1
+        const randomNum = getRandomNumber(1, 20);
         setPlayerHealth((playerhealth - (playerhealth * (randomNum/100))).toFixed(2))
         updateLog('Monster Attack')
       } else {

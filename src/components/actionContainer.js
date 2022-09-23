@@ -1,16 +1,19 @@
 import React from 'react'
+import { getRandomNumber } from 'utils/helper'
 
 function ActionContainer({ attack, heal, giveup, start, started }) {
   const handleAttack = () => {
-    const randomNumber = Math.floor(Math.random() * (10)) + 1
+    const randomNumber = getRandomNumber(1, 10);
     attack(randomNumber, false)
   }
+
   const handleSpecialAttack = () => {
-    const randomNumber = Math.floor(Math.random() * (20)) + 10
+    const randomNumber = getRandomNumber(10, 20);
     attack(randomNumber, true)
   }
+  
   const handleHeal = () => {
-    const randomNumber = Math.floor(Math.random() * (10)) + 1
+    const randomNumber = getRandomNumber(1, 10);
     heal(randomNumber)
   }
 
