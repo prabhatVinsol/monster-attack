@@ -30,7 +30,6 @@ function PlayersActionsContainer() {
   }
 
   const giveup = () => {
-    updateLog('Player Giveup')
     setPlayerHealth(100)
     setMonsterHealth(120)
     setLog([])
