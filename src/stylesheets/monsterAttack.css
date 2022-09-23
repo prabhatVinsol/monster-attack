@@ -70,7 +70,7 @@
 .attack{
     background-color: #EA8777;
 }
-.specialAttack{
+.special-attack{
     background-color: #F2A93D;
 }
 .heal{
@@ -78,6 +78,9 @@
 }
 .giveUp{
     background-color: #EA33F7;
+}
+.disbaled{
+    background-color: rgb(41, 44, 53);
 }
 .button{
     width: auto;
