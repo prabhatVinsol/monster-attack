@@ -1,0 +1,2 @@
+export const INITIAL_PLAYER_HEALTH = 100;
+export const INITIAL_MONSTER_HEALTH = 120;

@@ -1,9 +1,9 @@
 import React from 'react'
 
-function PlayerHealth(props) {
+function PlayerHealth({ health }) {
   return (
     <div className='PlayerHealth'>
-      {props.health}
+      {health}
     </div>
   )
 }

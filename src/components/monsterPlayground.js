@@ -1,6 +1,6 @@
 import React from 'react'
-import 'Stylesheet/MonsterAttack.css'
-import PlayersActionsContainer from 'Component/PlayersActionsContainer'
+import 'stylesheets/monsterAttack.css'
+import PlayersActionsContainer from 'components/playerActionsContainer'
 function MonsterPlayground() {
   return (
     <div className='MonsterDiv'>

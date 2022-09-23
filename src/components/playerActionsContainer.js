@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from 'react'
-import PlayerContainer from 'Component/PlayerContainer'
-import ActionContainer from 'Component/ActionContainer'
-import LogContainer from 'Component/LogContainer'
+import PlayerContainer from 'components/playerContainer'
+import ActionContainer from 'components/actionContainer'
+import LogContainer from 'components/logContainer'
+import { INITIAL_MONSTER_HEALTH, INITIAL_PLAYER_HEALTH } from 'utils/constants'
 
 function PlayersActionsContainer() {
   const [started, setStarted] = useState(false)
-  const [playerhealth, setPlayerHealth] = useState(100)
-  const [monsterhealth, setMonsterHealth] = useState(120)
+  const [playerhealth, setPlayerHealth] = useState(INITIAL_PLAYER_HEALTH)
+  const [monsterhealth, setMonsterHealth] = useState(INITIAL_MONSTER_HEALTH)
   const [actionLog, setLog] = useState([])
 
   const attack = (health, isSpecialAttack) => {
@@ -25,7 +26,6 @@ function PlayersActionsContainer() {
     updateLog('Player Healed')
     const healthToBeAdded = (playerhealth * (healthPercentage/100))
     const calHealth = Math.floor((playerhealth + Math.floor(healthToBeAdded.toFixed(2))))
-    console.log('Health final',calHealth)
     setPlayerHealth(calHealth > 100 ? 100 : calHealth)
   }
 
@@ -63,7 +63,7 @@ function PlayersActionsContainer() {
   
   return (
     <div className='PlayersActionContainer'>
-      <PlayerContainer playerHealth={playerhealth} monsterHealth={monsterhealth}/>
+      <PlayerContainer userHealth={playerhealth} monsterHealth={monsterhealth}/>
       <ActionContainer attack={attack} heal={heal} giveup={giveup} start={start} started={started}/>
       <LogContainer moves={actionLog}/>
     </div>

@@ -1,4 +1,4 @@
-import MonsterPlayground from 'Component/MonsterPlayground';
+import MonsterPlayground from 'components/monsterPlayground';
 import './App.css';
 
 function App() {
