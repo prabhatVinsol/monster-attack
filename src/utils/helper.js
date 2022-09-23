@@ -9,3 +9,8 @@ export const getHealedPlayerHealth = (currentPlayerHealth, healPercentage) => {
     const calHealth = Math.floor((playerHealth + Math.floor(healthToBeAdded.toFixed(2))))
     return (calHealth > 100 ? 100 : calHealth)
 }
+export const getPlayerHealth = (currentPlayerHealth) => {
+    let playerHealth = currentPlayerHealth;
+    const damagePercentage = getRandomNumber(1, 20);
+    return ((playerHealth - (playerHealth * (damagePercentage/100))).toFixed(2))
+}

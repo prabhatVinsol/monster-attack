@@ -3,30 +3,37 @@ import PlayerContainer from 'components/playerContainer'
 import ActionContainer from 'components/actionContainer'
 import LogContainer from 'components/logContainer'
 import { INITIAL_MONSTER_HEALTH, INITIAL_PLAYER_HEALTH } from 'utils/constants'
-import { getHealedPlayerHealth, getNewHealthVal, getRandomNumber } from 'utils/helper'
+import { getHealedPlayerHealth, getNewHealthVal, getPlayerHealth, getRandomNumber } from 'utils/helper'
 
 function PlayersActionsContainer() {
   const [started, setStarted] = useState(false)
   const [playerhealth, setPlayerHealth] = useState(INITIAL_PLAYER_HEALTH)
   const [monsterhealth, setMonsterHealth] = useState(INITIAL_MONSTER_HEALTH)
   const [actionLog, setLog] = useState([])
+  const [monsterTurn, setMonsterTurn] = useState(false);
 
   const attack = () => {
     updateLog('Player Attack');
     const healthPercentage = getRandomNumber(1, 10);
     setMonsterHealth(getNewHealthVal(monsterhealth, healthPercentage));
+    setMonsterTurn(true);
+    attackByMonster();
   }
 
   const specialAttack = () => {
     updateLog('Player Special Attack');
     const healthPercentage = getRandomNumber(10, 20);
-    setMonsterHealth(getNewHealthVal(monsterhealth, healthPercentage))
+    setMonsterHealth(getNewHealthVal(monsterhealth, healthPercentage));
+    setMonsterTurn(true)
+    attackByMonster()
   }
 
   const heal = () => {
     updateLog('Player Healed');
     const healPercentage = getRandomNumber(1, 10);
     setPlayerHealth(getHealedPlayerHealth(playerhealth, healPercentage));
+    setMonsterTurn(true)
+    attackByMonster();
   }
 
   const giveup = () => {
@@ -41,28 +48,21 @@ function PlayersActionsContainer() {
     setStarted(true)
   }
 
-  const updateLog = (logText) => setLog([...actionLog, logText])
+  const attackByMonster = () => {
+    setTimeout(() =>{
+      updateLog('Monster Attack')
+      setPlayerHealth(getPlayerHealth(playerhealth))
+      setMonsterTurn(false)
+    }, 1000);
+    
+  }
 
-  useEffect((prevState) => {
-    const interval = setInterval(() => {
-      if (started) {
-        const randomNum = getRandomNumber(1, 20);
-        setPlayerHealth((playerhealth - (playerhealth * (randomNum/100))).toFixed(2))
-        updateLog('Monster Attack')
-      } else {
-      }
-    }, 2000);
-    if(!started) {
-      clearInterval(interval)
-    }
-    return (() => clearInterval(interval))
-  }, [started, playerhealth, actionLog]) 
-  
+  const updateLog = (logText) => setLog([logText, ...actionLog])
   
   return (
     <div className='players-action-container'>
       <PlayerContainer userHealth={playerhealth} monsterHealth={monsterhealth}/>
-      <ActionContainer attack={attack} specialAttack={specialAttack} heal={heal} giveup={giveup} start={start} started={started} disableSpecialAttack={playerhealth < 90}/>
+      <ActionContainer monsterTurn={monsterTurn} attack={attack} specialAttack={specialAttack} heal={heal} giveup={giveup} start={start} started={started} disableSpecialAttack={playerhealth < 90}/>
       <LogContainer moves={actionLog}/>
     </div>
   )
