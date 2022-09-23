@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import PlayerContainer from 'components/playerContainer'
 import ActionContainer from 'components/actionContainer'
 import LogContainer from 'components/logContainer'
@@ -49,7 +49,7 @@ function PlayersActionsContainer() {
   }
 
   const attackByMonster = () => {
-    setTimeout(() =>{
+    setTimeout(() => {
       updateLog('Monster Attack')
       setPlayerHealth(getPlayerHealth(playerhealth))
       setMonsterTurn(false)
@@ -57,7 +57,11 @@ function PlayersActionsContainer() {
     
   }
 
-  const updateLog = (logText) => setLog([logText, ...actionLog])
+  const updateLog = (logText) => {
+    const logArray = actionLog;
+    logArray.unshift(logText);
+    setLog(logArray);
+  }
   
   return (
     <div className='players-action-container'>
