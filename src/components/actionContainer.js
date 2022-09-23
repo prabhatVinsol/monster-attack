@@ -1,28 +1,13 @@
 import React from 'react'
-import { getRandomNumber } from 'utils/helper'
 
-function ActionContainer({ attack, heal, giveup, start, started }) {
-  const handleAttack = () => {
-    const randomNumber = getRandomNumber(1, 10);
-    attack(randomNumber, false)
-  }
-
-  const handleSpecialAttack = () => {
-    const randomNumber = getRandomNumber(10, 20);
-    attack(randomNumber, true)
-  }
-  
-  const handleHeal = () => {
-    const randomNumber = getRandomNumber(1, 10);
-    heal(randomNumber)
-  }
+function ActionContainer({ attack, specialAttack, heal, giveup, start, started }) {
 
   if (started) {
     return (
       <div className='actions-container'>
-        <button type="button" className='button attack' onClick={handleAttack}>Action</button>
-        <button type="button" className='button specialAttack' onClick={handleSpecialAttack}>Special Attack</button>
-        <button type="button" className='button heal' onClick={handleHeal}>Heal</button>
+        <button type="button" className='button attack' onClick={() => attack()}>Action</button>
+        <button type="button" className='button specialAttack' onClick={() => specialAttack()}>Special Attack</button>
+        <button type="button" className='button heal' onClick={() => heal()}>Heal</button>
         <button type="button" className='button giveUp' onClick={() => giveup()}>Give Up</button>
       </div>
     )

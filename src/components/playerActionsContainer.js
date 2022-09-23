@@ -11,26 +11,27 @@ function PlayersActionsContainer() {
   const [monsterhealth, setMonsterHealth] = useState(INITIAL_MONSTER_HEALTH)
   const [actionLog, setLog] = useState([])
 
-  const attack = (healthPercentage, isSpecialAttack) => {
-    if (isSpecialAttack) {
-      if(playerhealth >= 90) {
-        updateLog('Player Special Attack')
-        setMonsterHealth(getNewHealthVal(monsterhealth, healthPercentage))
-      }
-    } else {
-      updateLog('Player Attack')
-      setMonsterHealth(getNewHealthVal(monsterhealth, healthPercentage))
-    }
+  const attack = () => {
+    updateLog('Player Attack');
+    const healthPercentage = getRandomNumber(1, 10);
+    setMonsterHealth(getNewHealthVal(monsterhealth, healthPercentage));
   }
 
-  const heal = (healPercentage) => {
-    updateLog('Player Healed')
-    setPlayerHealth(getHealedPlayerHealth(playerhealth, healPercentage))
+  const specialAttack = () => {
+    updateLog('Player Special Attack');
+    const healthPercentage = getRandomNumber(10, 20);
+    setMonsterHealth(getNewHealthVal(monsterhealth, healthPercentage))
+  }
+
+  const heal = () => {
+    updateLog('Player Healed');
+    const healPercentage = getRandomNumber(1, 10);
+    setPlayerHealth(getHealedPlayerHealth(playerhealth, healPercentage));
   }
 
   const giveup = () => {
-    setPlayerHealth(100)
-    setMonsterHealth(120)
+    setPlayerHealth(INITIAL_PLAYER_HEALTH)
+    setMonsterHealth(INITIAL_MONSTER_HEALTH)
     setLog([])
     setStarted(false)
   }
@@ -61,7 +62,7 @@ function PlayersActionsContainer() {
   return (
     <div className='players-action-container'>
       <PlayerContainer userHealth={playerhealth} monsterHealth={monsterhealth}/>
-      <ActionContainer attack={attack} heal={heal} giveup={giveup} start={start} started={started}/>
+      <ActionContainer attack={attack} specialAttack={specialAttack} heal={heal} giveup={giveup} start={start} started={started}/>
       <LogContainer moves={actionLog}/>
     </div>
   )
