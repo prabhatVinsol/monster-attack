@@ -1,4 +1,4 @@
-.MonsterDiv{
+.monster-container{
     width: 100%;
     height: 100vh;
     text-align: center;
@@ -6,7 +6,7 @@
     padding: 200px 0px;
 }
 
-.PlayersActionContainer{
+.players-action-container{
     width: auto;
     height: 350px;
     padding: 10px 20px;
@@ -16,15 +16,15 @@
     border: 3px solid #22252a;
     
 }
-.PlayersContainer {
+.players-container {
     width: 100%;
     height: 100px;
 }
-.ActionsContainer {
+.actions-container {
     width: auto;
     height: 50px;
 }
-.ActionLogContainer {
+.action-log-container {
     width: auto;
     max-height: 170px;
     background-color: #222529;
@@ -33,14 +33,14 @@
     overflow-y: scroll;
     
 }
-.PlayerHealth {
+.player-health {
     width: 80%;
     height: 20px;
     background-color: #408559;
     border-radius: 3px;
     color: black;
 }
-.PlayerType{
+.player-type{
     font-size: medium;
     font-weight: bold;
     color: white;
@@ -49,7 +49,7 @@
     padding: 10px 0px;
 }
 
-.PlayerContainerLeft {
+.player-container-left {
     font-size: medium;
     font-weight: bold;
     color: white;
@@ -58,7 +58,7 @@
     float: left;
     border-radius: 4px;
 }
-.MonsterContainerRight {
+.monster-container-right {
     font-size: medium;
     font-weight: bold;
     color: white;
@@ -67,19 +67,19 @@
     float: right;
     border-radius: 4px;
 }
-.Attack{
+.attack{
     background-color: #EA8777;
 }
-.SpecialAttack{
+.specialAttack{
     background-color: #F2A93D;
 }
-.Heal{
+.heal{
     background-color: #56B3B6;
 }
-.GiveUp{
+.giveUp{
     background-color: #EA33F7;
 }
-.Button{
+.button{
     width: auto;
     height: 40px;
     color: black;
@@ -90,17 +90,14 @@
     border: 0px;
     padding: 0px 20px;
 }
-.Nolog{
+.no-log{
     padding: 60px 30px;
     color: white;
     font-size: x-large;
     font-weight: 300;
 }
-.Logtext{
+.log-text{
     font-size: medium;
     color: white;
     padding-top: 10px;
-}
-.LogDiv {
-    height: 100%;
 }

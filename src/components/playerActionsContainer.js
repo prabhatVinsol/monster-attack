@@ -62,8 +62,8 @@ function PlayersActionsContainer() {
   
   
   return (
-    <div className='PlayersActionContainer'>
-      <PlayerContainer userHealth={playerhealth} monsterHealth={monsterhealth}/>
+    <div className='players-action-container'>
+      <PlayerContainer playerhealth={playerhealth} monsterHealth={monsterhealth}/>
       <ActionContainer attack={attack} heal={heal} giveup={giveup} start={start} started={started}/>
       <LogContainer moves={actionLog}/>
     </div>

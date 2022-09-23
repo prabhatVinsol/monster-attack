@@ -1,13 +1,13 @@
 import React from 'react'
 import PlayerHealth from 'components/playerHealth'
 
-function Player({ type, health}) {
+function User({ type, health}) {
   return (
-    <div className='PlayerType'>
+    <div className='User-type'>
       {type}
       <PlayerHealth health={health}/>
     </div>
   )
 }
 
-export default Player
+export default User

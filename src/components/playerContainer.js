@@ -1,14 +1,14 @@
 import React from 'react'
-import Player from 'components/player'
+import User from 'components/player'
 
-function PlayerContainer({ userHealth, monsterHealth }) {
+function PlayerContainer({ playerhealth, monsterHealth }) {
   return (
-    <div className='PlayersContainer'  align='left'>
-      <div className='PlayerContainerLeft' align='center'>
-        <Player type='Player' health={userHealth}/>
+    <div className='players-container'  align='left'>
+      <div className='player-container-left' align='center'>
+        <User type='Player' health={playerhealth}/>
       </div>
-      <div className='MonsterContainerRight' align='center'>
-        <Player type='Monster' health={monsterHealth}/>
+      <div className='monster-container-right' align='center'>
+        <User type='Monster' health={monsterHealth}/>
       </div> 
     </div>
   )

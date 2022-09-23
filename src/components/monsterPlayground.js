@@ -3,7 +3,7 @@ import 'stylesheets/monsterAttack.css'
 import PlayersActionsContainer from 'components/playerActionsContainer'
 function MonsterPlayground() {
   return (
-    <div className='MonsterDiv'>
+    <div className='monster-container'>
       <PlayersActionsContainer />
     </div>
   )

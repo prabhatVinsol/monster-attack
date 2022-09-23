@@ -16,17 +16,17 @@ function ActionContainer({ attack, heal, giveup, start, started }) {
 
   if (started) {
     return (
-      <div className='ActionsContainer'>
-        <button type="button" className='Button Attack' onClick={handleAttack}>Action</button>
-        <button type="button" className='Button SpecialAttack' onClick={handleSpecialAttack}>Special Attack</button>
-        <button type="button" className='Button Heal' onClick={handleHeal}>Heal</button>
-        <button type="button" className='Button GiveUp' onClick={() => giveup()}>Give Up</button>
+      <div className='actions-container'>
+        <button type="button" className='button attack' onClick={handleAttack}>Action</button>
+        <button type="button" className='button specialAttack' onClick={handleSpecialAttack}>Special Attack</button>
+        <button type="button" className='button heal' onClick={handleHeal}>Heal</button>
+        <button type="button" className='button giveUp' onClick={() => giveup()}>Give Up</button>
       </div>
     )
   } else {
     return (
-      <div className='ActionsContainer'>
-        <button className='Button Attack' onClick={() => start()}>Start</button>
+      <div className='actions-container'>
+        <button className='button attack' onClick={() => start()}>Start</button>
       </div>
     )
   }

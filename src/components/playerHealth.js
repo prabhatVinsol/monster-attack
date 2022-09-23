@@ -2,7 +2,7 @@ import React from 'react'
 
 function PlayerHealth({ health }) {
   return (
-    <div className='PlayerHealth'>
+    <div className='player-health'>
       {health}
     </div>
   )
