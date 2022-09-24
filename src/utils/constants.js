@@ -1,2 +1,3 @@
 export const INITIAL_PLAYER_HEALTH = 100;
 export const INITIAL_MONSTER_HEALTH = 120;
+export const MONSTER_ATTACK_TIMEOUT = 1000;

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import PlayerContainer from 'components/playerContainer'
 import ActionContainer from 'components/actionContainer'
 import LogContainer from 'components/logContainer'
-import { INITIAL_MONSTER_HEALTH, INITIAL_PLAYER_HEALTH } from 'utils/constants'
+import { INITIAL_MONSTER_HEALTH, INITIAL_PLAYER_HEALTH, MONSTER_ATTACK_TIMEOUT } from 'utils/constants'
 import { getHealedPlayerHealth, getNewHealthVal, getPlayerHealth, getRandomNumber } from 'utils/helper'
 
 function PlayersActionsContainer() {
@@ -53,7 +53,7 @@ function PlayersActionsContainer() {
       updateLog('Monster Attack')
       setPlayerHealth(getPlayerHealth(playerhealth))
       setMonsterTurn(false)
-    }, 1000);
+    }, MONSTER_ATTACK_TIMEOUT);
     
   }
 
